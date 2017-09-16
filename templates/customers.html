@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CUSTOMERS</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/picnic.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/plugins.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav>
+	  <a href="#" class="brand">
+	    <span>Shopify App</span>
+	  </a>
+	</nav>
+	<main>
+		<h1>Customers</h1>
+		<div class="flex one">
+		{% if customers %}
+		{% for customer in customers %}
+		<div>
+            <article class="card">
+				<section>
+					<table>
+					  <tr>
+						<td>id:</td><td> {{ customer.id }}</td></tr>
+					  <tr>
+						<td>first_name:</td><td> {{ customer.first_name }}</td></tr>
+					  <tr>
+						<td>last_name:</td><td> {{ customer.last_name }}</td></tr>
+					  <tr>
+						<td>note:</td><td> {{ customer.note }}</td></tr>
+					  <tr>
+					    <td>order name:</td><td> {{ customer.last_order_name }}</td></tr>
+					  <tr>
+					    <td>order id:</td><td> {{ customer.last_order_id }}</td></tr>
+					  <tr>
+					    <td>tags:</td><td> {{ customer.tags }}</td></tr>
+					  <tr>
+						<td rowspan=6>address:</td>{% for address in customer.addresses %}
+						<tr><td>{{ address.address1 }}</td>
+						<tr><td>{{ address.address2 }}</td>
+						<tr><td>{{ address.city }}</td>
+						<tr><td>{{ address.province }}({{ address.province_code }})</td>
+						<tr><td>{{ address.country }}({{ address.country_code }})</td>
+						<tr><td>Phone:<td>{{ address.phone }}</td>
+						<tr><td>Name:<td>{{ address.name }}</td>
+						{% endfor %}</td></tr>
+					  <tr>
+						<td>email:</td><td>{{customer.email}}</td></tr>
+					  <tr>
+					  <td>Tax Exempt:</td><td>{{ customer.tax_exempt }}</td></tr>
+					</table>
+				</section>
+            </article>
+        </div>
+		{% endfor %}
+		{% endif %}
+		</div>
+	</main>
+</body>
+</html>

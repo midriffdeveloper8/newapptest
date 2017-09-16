@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Product</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/picnic.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/plugins.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<nav>
+	  <a href="#" class="brand">
+	    <span>Shopify App</span>
+	  </a>
+	</nav>
+	
+	<main>
+		<h1>Single Product</h1>
+		<div class="flex one">
+		 
+		  <div>
+		    <article class="card">
+		      <img src="{{ product.images[0].src }}">
+		      <section>
+		        <h3>{{ product.title }}</h3>
+		        <strong>{{ product.variants[0].price }} </strong>
+				<br>
+				{{ product.body_html }}
+		      </section>
+		    </article>
+		  </div>
+		 
+		</div>
+	</main>
+	
+</body>
+</html>

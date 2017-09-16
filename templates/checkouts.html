@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Products</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/picnic.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picnic/6.1.1/plugins.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	
+	<nav>
+	  <a href="#" class="brand">
+	    <span>Shopify App</span>
+	  </a>
+	</nav>
+	
+	<main>
+		<h1>checkout</h1>
+		<div class="flex two">
+		  {% for checkout in checkouts %}
+		  <div>
+		    <article class="card">
+		      <section>
+			  <table>
+			  <tr><td>email :</td><td>{{ email }}</td></tr>
+			  <tr><td>customer_id :</td><td>{{ customer_id }}</td></tr>
+			  <tr><td>currency :</td><td>{{ currency }}</td></tr>
+			  <tr><td>billing_address :</td><td>{{ billing_address }}</td></tr>
+			  
+                <tr>{% for item in line.item %}<td>
+		      title  {{ item.title }}
+		       variant_id {{ item.variant_id }}
+				</td><td>variant_title{{ item.variant_title }}
+				product_id{{ item.product_id }}
+				id{{ item.id }}</td></tr>
+				{% endfor %}
+				</table>
+		      </section>
+		    </article>
+		  </div>
+		  {% endfor %}
+		</div>
+	</main>
+	
+</body>
+</html>
